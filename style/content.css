@@ -2,11 +2,11 @@
 .content-list-title {
     font-family: "Black Ops One", cursive;
     text-align: center;
-    font-size: 3rem;
+    font-size: 4rem;
 }
 .subtitle {
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 2rem;
 }
 .content-list {
     display: grid;
