@@ -86,10 +86,10 @@
     transform-origin: 0 center;
 }
 .pamphlet-container:is(*:hover, *:active) .fold-left {
-    transform: rotateY(calc(var(--fold-angle) * -1));
+    transform: translateZ(100px) rotateY(calc(var(--fold-angle) * -1));
 }
 .pamphlet-container:is(*:hover, *:active) .fold-right {
-    transform: rotateY(var(--fold-angle));
+    transform: translateZ(100px) rotateY(var(--fold-angle));
     position: relative;
 }
 
