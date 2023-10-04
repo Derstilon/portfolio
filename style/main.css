@@ -1,5 +1,5 @@
 html {
-    font-size: 16px;
+    font-size: 0.75vw;
 }
 :root {
     --card-size-adjust-percentage: 10;
