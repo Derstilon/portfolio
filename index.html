@@ -32,7 +32,10 @@
                         </div>
                     </div>
                     <div class="column-inner">
-                        <div class="column-content">
+                        <div
+                            class="column-content green-marker"
+                            onscroll="updateMarkerPosition(this, 'green')"
+                        >
                             <div class="content-list">
                                 <h3 class="content-list-title">Projects</h3>
                                 <a
@@ -53,6 +56,36 @@
                                     <img
                                         src="img/yaptideEditor.jpg"
                                         alt="Yaptide Editor"
+                                    />
+                                </a>
+                                <a
+                                    class="project-link"
+                                    href="https://derstilon.github.io/Bob/"
+                                    target="_blank"
+                                >
+                                    <img
+                                        src="img/bobBuilder.jpg"
+                                        alt="Bob Builder"
+                                    />
+                                </a>
+                                <a
+                                    class="project-link"
+                                    href="https://derstilon.github.io/Dratewka/"
+                                    target="_blank"
+                                >
+                                    <img
+                                        src="img/dratewkaTheShoemaker.png"
+                                        alt="Dratewka the ShoeMaker"
+                                    />
+                                </a>
+                                <a
+                                    class="project-link"
+                                    href="https://derstilon.github.io/Zuzel/"
+                                    target="_blank"
+                                >
+                                    <img
+                                        src="img/zuzel.jpg"
+                                        alt="Żużel (speedway)"
                                     />
                                 </a>
                             </div>
@@ -92,7 +125,7 @@
                 <div class="column-inner">
                     <div
                         class="column-content red-marker"
-                        onscroll="updateRedMarkerPosition(this)"
+                        onscroll="updateMarkerPosition(this, 'red')"
                     >
                         <div class="content-list">
                             <h3 class="content-list-title">Technologies</h3>
@@ -140,19 +173,24 @@
             </div>
         </div>
         <script>
-            function updateRedMarkerPosition(element) {
+            function updateMarkerPosition(element, markerName = "red") {
                 var isFirefox = typeof InstallTrigger !== "undefined";
                 if (isFirefox) return;
                 const scrollPosition = element.scrollTop;
                 const redMarkerPosition =
                     (scrollPosition / element.scrollHeight) * 100;
                 document.documentElement.style.setProperty(
-                    "--red-marker-position",
+                    `--${markerName}-marker-position`,
                     `${redMarkerPosition}%`,
                 );
             }
-            updateRedMarkerPosition(
+            updateMarkerPosition(
                 document.getElementsByClassName("red-marker")[0],
+                "red",
+            );
+            updateMarkerPosition(
+                document.getElementsByClassName("green-marker")[0],
+                "green",
             );
         </script>
     </body>
