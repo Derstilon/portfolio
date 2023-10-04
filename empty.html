@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Portfolio pamphlet</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="style/main.css" />
+        <link rel="stylesheet" href="style/pamphlet.css" />
+        <link rel="stylesheet" href="style/shadows.css" />
+        <link rel="stylesheet" href="style/scrollbar.css" />
+        <link rel="stylesheet" href="style/content.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta charset="UTF-8" />
+        <meta name="description" content="Portfolio with 3d pamphlet layout" />
+        <meta name="keywords" content="portfolio, pamphlet, 3d, layout" />
+        <meta name="author" content="Jakub Niechaj" />
+    </head>
+    <body>
+        <div class="pamphlet-container">
+            <div class="column c1 fold-left">
+                <div class="column c2 fold-right">
+                    <div class="column c3 fold-left">
+                        <div class="column-inner cover empty"></div>
+                    </div>
+                    <div class="column-inner empty"></div>
+                </div>
+                <div class="column-inner empty"></div>
+            </div>
+            <div class="column c4 fold-right">
+                <div class="column-inner empty"></div>
+                <div class="column c5 fold-left">
+                    <div class="column-inner empty"></div>
+                    <div class="column c6 fold-right">
+                        <div class="column-inner cover empty"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            function updateMarkerPosition(element, markerName = "red") {
+                var isFirefox = typeof InstallTrigger !== "undefined";
+                if (isFirefox) return;
+                const scrollPosition = element.scrollTop;
+                const redMarkerPosition =
+                    (scrollPosition / element.scrollHeight) * 100;
+                document.documentElement.style.setProperty(
+                    `--${markerName}-marker-position`,
+                    `${redMarkerPosition}%`,
+                );
+            }
+            updateMarkerPosition(
+                document.getElementsByClassName("red-marker")[0],
+                "red",
+            );
+            updateMarkerPosition(
+                document.getElementsByClassName("green-marker")[0],
+                "green",
+            );
+        </script>
+    </body>
+</html>
