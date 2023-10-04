@@ -43,10 +43,7 @@
                                     href="https://derstilon.github.io/chickenFromAtari/"
                                     target="_blank"
                                 >
-                                    <img
-                                        src="img/chickenFromAtari.jpg"
-                                        alt="Chicken from Atari"
-                                    />
+                                    Chicken from Atari
                                 </a>
                                 <a
                                     class="project-link"
@@ -184,6 +181,14 @@
                     `${redMarkerPosition}%`,
                 );
             }
+            function disableShadows() {
+                var isFirefox = typeof InstallTrigger !== "undefined";
+                if (isFirefox) return;
+                document.documentElement.style.setProperty(
+                    "--display-shadows",
+                    "none",
+                );
+            }
             updateMarkerPosition(
                 document.getElementsByClassName("red-marker")[0],
                 "red",
@@ -192,6 +197,7 @@
                 document.getElementsByClassName("green-marker")[0],
                 "green",
             );
+            disableShadows();
         </script>
     </body>
 </html>

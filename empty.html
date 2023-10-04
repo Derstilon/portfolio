@@ -40,26 +40,5 @@
                 </div>
             </div>
         </div>
-        <script>
-            function updateMarkerPosition(element, markerName = "red") {
-                var isFirefox = typeof InstallTrigger !== "undefined";
-                if (isFirefox) return;
-                const scrollPosition = element.scrollTop;
-                const redMarkerPosition =
-                    (scrollPosition / element.scrollHeight) * 100;
-                document.documentElement.style.setProperty(
-                    `--${markerName}-marker-position`,
-                    `${redMarkerPosition}%`,
-                );
-            }
-            updateMarkerPosition(
-                document.getElementsByClassName("red-marker")[0],
-                "red",
-            );
-            updateMarkerPosition(
-                document.getElementsByClassName("green-marker")[0],
-                "green",
-            );
-        </script>
     </body>
 </html>

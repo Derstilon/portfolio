@@ -85,18 +85,18 @@
 .column:is(.c4, .c5, .c6) {
     transform-origin: 0 center;
 }
-.pamphlet-container:hover .fold-left {
+.pamphlet-container:is(*:hover, *:active) .fold-left {
     transform: rotateY(calc(var(--fold-angle) * -1));
 }
-.pamphlet-container:hover .fold-right {
+.pamphlet-container:is(*:hover, *:active) .fold-right {
     transform: rotateY(var(--fold-angle));
     position: relative;
 }
 
-.pamphlet-container:hover .fold-left > .fold-right {
+.pamphlet-container:is(*:hover, *:active) .fold-left > .fold-right {
     transform: rotateY(calc(var(--fold-angle) * 2));
 }
-.pamphlet-container:hover .fold-right > .fold-left {
+.pamphlet-container:is(*:hover, *:active) .fold-right > .fold-left {
     transform: rotateY(calc(var(--fold-angle) * -2));
 }
 .fold-right {
@@ -105,6 +105,6 @@
 .fold-right > .fold-left {
     transform: rotateY(-179deg);
 }
-.pamphlet-container:hover {
+.pamphlet-container:is(*:hover, *:active) {
     transform: translateX(calc(1% * var(--card-size-adjust-percentage) / -2));
 }
