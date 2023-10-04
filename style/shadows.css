@@ -17,7 +17,7 @@
     );
 }
 .fold-right:not(.c6) > .column-inner::after {
-    /* pointer-events: none; */
+    pointer-events: none;
     outline: 1px solid transparent;
     transform-style: preserve-3d;
     display: var(--display-shadows);
@@ -53,7 +53,7 @@
         skewY(-3deg);
 }
 .fold-right::before {
-    /* pointer-events: none; */
+    pointer-events: none;
     display: block;
     content: "";
     background: rgba(64, 64, 64, 0.7);
