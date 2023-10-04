@@ -1,0 +1,110 @@
+.pamphlet-container {
+    display: grid;
+    width: min(
+        110vw,
+        calc(var(--amount-of-columns) * 100vh * var(--card-aspect-ratio))
+    );
+    height: min(
+        100vh,
+        calc(
+            100vw * (100 + var(--card-size-adjust-percentage)) / 100 /
+                (var(--card-aspect-ratio) * var(--amount-of-columns))
+        )
+    );
+    grid-template-columns: repeat(var(--amount-of-columns), 1fr);
+    grid-template-rows: 100%;
+    transform-style: preserve-3d;
+    perspective: 4000px;
+    transition: transform var(--transition-duration) ease-in-out;
+    transform: translateX(calc(1% * var(--card-size-adjust-percentage) / 2));
+}
+.column {
+    transform-style: preserve-3d;
+    transition: transform var(--transition-duration);
+    display: grid;
+    height: 100%;
+    grid-template-rows: 100%;
+    grid-row: span 1;
+    transform-origin: 0 center;
+    margin-inline: -0.5px;
+}
+.column-inner {
+    transform-style: preserve-3d;
+    background: var(--pamphlet-color);
+    display: grid;
+    column-span: 1;
+    overflow: hidden;
+    outline: 1px solid transparent;
+}
+.column-inner:not(.empty) {
+    padding-left: var(--column-white-space);
+    padding-right: calc(var(--column-white-space) / 3);
+    padding-top: var(--column-white-space);
+
+    box-sizing: border-box;
+}
+.column-content {
+    position: relative;
+    overflow-y: auto;
+    overflow-x: visible;
+    margin-bottom: var(--column-white-space);
+    padding-right: calc(var(--column-white-space) * 2 / 3);
+}
+.column > .column-inner.cover {
+    filter: brightness(1);
+    background-color: var(--pamphlet-cover-color);
+    color: whitesmoke;
+}
+.column.c1 {
+    grid-column: span 3;
+    grid-template-columns: repeat(3, 1fr);
+}
+.column.c2 {
+    grid-column: span 2;
+    grid-template-columns: repeat(2, 1fr);
+}
+.column.c3 {
+    grid-column: span 1;
+    grid-template-columns: 1fr;
+}
+.column.c4 {
+    grid-column: span 3;
+    grid-template-columns: repeat(3, 1fr);
+}
+.column.c5 {
+    grid-column: span 2;
+    grid-template-columns: repeat(2, 1fr);
+}
+.column.c6 {
+    grid-column: span 1;
+    grid-template-columns: 1fr;
+}
+.column:is(.c1, .c2, .c3) {
+    transform-origin: 100% center;
+}
+.column:is(.c4, .c5, .c6) {
+    transform-origin: 0 center;
+}
+.pamphlet-container:hover .fold-left {
+    transform: rotateY(calc(var(--fold-angle) * -1));
+}
+.pamphlet-container:hover .fold-right {
+    transform: rotateY(var(--fold-angle));
+    position: relative;
+}
+
+.pamphlet-container:hover .fold-left > .fold-right {
+    transform: rotateY(calc(var(--fold-angle) * 2));
+}
+.pamphlet-container:hover .fold-right > .fold-left {
+    transform: rotateY(calc(var(--fold-angle) * -2));
+}
+.fold-right {
+    transform: rotateY(179deg);
+}
+.fold-right > .fold-left {
+    transform: rotateY(-179deg);
+}
+.pamphlet-container:hover {
+    transform: translateX(calc(1% * var(--card-size-adjust-percentage) / -2));
+}

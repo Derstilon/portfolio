@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Portfolio pamphlet</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="style/main.css" />
+        <link rel="stylesheet" href="style/pamphlet.css" />
+        <link rel="stylesheet" href="style/shadows.css" />
+        <link rel="stylesheet" href="style/scrollbar.css" />
+        <link rel="stylesheet" href="style/content.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta charset="UTF-8" />
+        <meta name="description" content="Portfolio with 3d pamphlet layout" />
+        <meta name="keywords" content="portfolio, pamphlet, 3d, layout" />
+        <meta name="author" content="Jakub Niechaj" />
+    </head>
+    <body>
+        <div class="pamphlet-container">
+            <div class="column c1 fold-left">
+                <div class="column c2 fold-right">
+                    <div class="column c3 fold-left">
+                        <div class="column-inner cover">
+                            <div class="column-content">
+                                <h1 class="title">Jakub Niechaj</h1>
+                                <h2 class="subtitle">Frontend Developer</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column-inner">
+                        <div class="column-content">
+                            <div class="content-list">
+                                <h3 class="content-list-title">Projects</h3>
+                                <a
+                                    class="project-link"
+                                    href="https://derstilon.github.io/chickenFromAtari/"
+                                    target="_blank"
+                                >
+                                    <img
+                                        src="img/chickenFromAtari.jpg"
+                                        alt="Chicken from Atari"
+                                    />
+                                </a>
+                                <a
+                                    class="project-link"
+                                    href="https://yaptide.github.io/web_dev/"
+                                    target="_blank"
+                                >
+                                    <img
+                                        src="img/yaptideEditor.jpg"
+                                        alt="Yaptide Editor"
+                                    />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column-inner">
+                    <div class="column-content">
+                        <div class="content-list">
+                            <h3 class="content-list-title">Languages</h3>
+                            <a class="project-link">
+                                <img
+                                    src="img/javascript.jpg"
+                                    alt="JavaScript"
+                                />
+                            </a>
+                            <a class="project-link">
+                                <img
+                                    src="img/typescript.jpg"
+                                    alt="Typescript"
+                                />
+                            </a>
+                            <a class="project-link">
+                                <img
+                                    src="img/htmlcss2.jpg"
+                                    alt="HTML and CSS"
+                                />
+                            </a>
+                            <a class="project-link">
+                                <img src="img/python.png" alt="Python" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column c4 fold-right">
+                <div class="column-inner">
+                    <div
+                        class="column-content red-marker"
+                        onscroll="updateRedMarkerPosition(this)"
+                    >
+                        <div class="content-list">
+                            <h3 class="content-list-title">Technologies</h3>
+                            <a class="project-link">
+                                <img src="img/docker.jpg" alt="Docker" />
+                            </a>
+                            <a class="project-link">
+                                <img src="img/git.jpg" alt="Git" />
+                            </a>
+                            <a class="project-link">
+                                <img src="img/node.jpg" alt="NodeJS" />
+                            </a>
+                            <a class="project-link">
+                                <img src="img/react.jpg" alt="ReactJS" />
+                            </a>
+                            <a class="project-link">
+                                <img src="img/sass.jpg" alt="Sass" />
+                            </a>
+                            <a class="project-link">
+                                <img
+                                    src="img/slurm.jpg"
+                                    alt="Slurm job scheduling"
+                                />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="column c5 fold-left">
+                    <div class="column-inner">
+                        <div class="column-content">
+                            <div class="content-list">
+                                <h3 class="content-list-title">
+                                    Currently learning
+                                </h3>
+                                <a class="project-link">
+                                    <img src="img/wasm.jpg" alt="WebAssembly" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column c6 fold-right">
+                        <div class="column-inner cover empty"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            function updateRedMarkerPosition(element) {
+                var isFirefox = typeof InstallTrigger !== "undefined";
+                if (isFirefox) return;
+                const scrollPosition = element.scrollTop;
+                const redMarkerPosition =
+                    (scrollPosition / element.scrollHeight) * 100;
+                document.documentElement.style.setProperty(
+                    "--red-marker-position",
+                    `${redMarkerPosition}%`,
+                );
+            }
+            updateRedMarkerPosition(
+                document.getElementsByClassName("red-marker")[0],
+            );
+        </script>
+    </body>
+</html>

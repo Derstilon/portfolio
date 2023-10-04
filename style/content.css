@@ -1,0 +1,32 @@
+.title,
+.content-list-title {
+    font-family: "Black Ops One", cursive;
+    text-align: center;
+    font-size: 3rem;
+}
+.subtitle {
+    text-align: center;
+    font-size: 1.5rem;
+}
+.content-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 6rem;
+}
+.project-link {
+    display: block;
+    width: 100%;
+}
+.project-link img {
+    width: 100%;
+    height: auto;
+}
+.content-list-title {
+    font-size: 2rem;
+    position: fixed;
+    top: 0;
+    width: calc(100% - 2rem - var(--column-white-space));
+    padding-block: 2rem 1rem;
+    background: var(--pamphlet-color);
+}

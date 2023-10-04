@@ -1,0 +1,87 @@
+.column-inner {
+    filter: brightness(0.6);
+    transition: filter var(--transition-duration) ease-in-out;
+}
+.fold-left > .column-inner:not(.cover) {
+    background: linear-gradient(
+        90deg,
+        var(--pamphlet-corner-shadow) 0%,
+        var(--pamphlet-color) 1.5%
+    );
+}
+.fold-right > .column-inner:not(.cover) {
+    background: linear-gradient(
+        90deg,
+        var(--pamphlet-color) 98.5%,
+        var(--pamphlet-corner-shadow) 100%
+    );
+}
+.fold-right:not(.c6) > .column-inner::after {
+    pointer-events: none;
+    outline: 1px solid transparent;
+    transform-style: preserve-3d;
+    display: block;
+    content: "";
+    background: rgba(64, 64, 64, 0.15);
+    background: linear-gradient(
+        0deg,
+        transparent 0%,
+        rgba(47, 47, 47, 0.15) 20%
+    );
+    filter: blur(2px);
+    position: fixed;
+    transform-origin: 0 0;
+    left: 100%;
+    top: 0;
+    width: 200%;
+    height: 60%;
+    transform: rotateZ(90deg);
+    transition: transform var(--transition-duration) ease-in-out;
+    backface-visibility: hidden;
+}
+.pamphlet-container:hover .fold-right:not(.c6) > .column-inner::after {
+    transform: rotateZ(25deg) skew(0, 65deg); /* rotateZ and skew degrees should sum up to 90 deg */
+}
+.pamphlet-container:hover .fold-right::before {
+    pointer-events: none;
+    filter: blur(20px) opacity(1);
+    transition: filter calc(var(--transition-duration) / 2) linear
+            calc(var(--transition-duration) / 2),
+        transform var(--transition-duration);
+    transform: rotateY(calc(var(--fold-angle) * -1)) translateZ(-40px)
+        skewY(-3deg);
+}
+.fold-right::before {
+    display: block;
+    content: "";
+    background: rgba(64, 64, 64, 0.7);
+    border-radius: 10%;
+    position: fixed;
+    top: 0;
+    height: 100%;
+    filter: blur(20px) opacity(0);
+    transform: rotateY(-180deg) translateZ(0);
+    transition: filter calc(var(--transition-duration) / 3),
+        transform var(--transition-duration);
+}
+.fold-right.c2::before {
+    width: 75%;
+    left: 20%;
+    transform-origin: 100% 0;
+}
+.fold-right.c4::before {
+    width: calc(150% / 3);
+    left: calc(-55% / 3);
+    transform-origin: 100% 0;
+}
+.fold-right.c6::before {
+    width: 150%;
+    left: -55%;
+    transform-origin: 100% 0;
+}
+.pamphlet-container:hover .fold-left > .column-inner {
+    filter: brightness(0.85);
+}
+.pamphlet-container:hover .fold-right > .column-inner {
+    filter: brightness(1);
+}
