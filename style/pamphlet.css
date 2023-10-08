@@ -1,28 +1,21 @@
 .pamphlet-container {
     display: grid;
-    width: min(
-        110vw,
-        calc(var(--amount-of-columns) * 100vh * var(--card-aspect-ratio))
-    );
-    height: min(
-        100vh,
-        calc(
-            100vw * (100 + var(--card-size-adjust-percentage)) / 100 /
-                (var(--card-aspect-ratio) * var(--amount-of-columns))
-        )
-    );
+    aspect-ratio: calc(var(--amount-of-columns) * var(--card-aspect-ratio));
     grid-template-columns: repeat(var(--amount-of-columns), 1fr);
     grid-template-rows: 100%;
     transform-style: preserve-3d;
     perspective: 4000px;
     transition: transform var(--transition-duration) ease-in-out;
-    transform: translateX(calc(1% * var(--card-size-adjust-percentage) / 2));
+    transform: translateX(calc(100% / (2 * var(--amount-of-columns))));
+    min-width: var(--pamphlet-min-width);
+}
+.pamphlet-container:is(*:hover, *:active) {
+    transform: translateX(0);
 }
 .column {
     transform-style: preserve-3d;
     transition: transform var(--transition-duration);
     display: grid;
-    height: 100%;
     grid-template-rows: 100%;
     grid-row: span 1;
     transform-origin: 0 center;
@@ -55,26 +48,17 @@
     background-color: var(--pamphlet-cover-color);
     color: whitesmoke;
 }
-.column.c1 {
-    grid-column: span 3;
-    grid-template-columns: repeat(3, 1fr);
-}
-.column.c2 {
-    grid-column: span 2;
-    grid-template-columns: repeat(2, 1fr);
-}
-.column.c3 {
-    grid-column: span 1;
-    grid-template-columns: 1fr;
-}
+.column.c1,
 .column.c4 {
     grid-column: span 3;
     grid-template-columns: repeat(3, 1fr);
 }
+.column.c2,
 .column.c5 {
     grid-column: span 2;
     grid-template-columns: repeat(2, 1fr);
 }
+.column.c3,
 .column.c6 {
     grid-column: span 1;
     grid-template-columns: 1fr;
@@ -85,11 +69,13 @@
 .column:is(.c4, .c5, .c6) {
     transform-origin: 0 center;
 }
-.pamphlet-container:is(*:hover, *:active) .fold-left {
-    transform: translateZ(100px) rotateY(calc(var(--fold-angle) * -1));
+.pamphlet-container:is(*:hover, *:active) > .fold-left {
+    transform: rotateY(-90deg) translateX(33%)
+        rotateY(calc(90deg + (var(--fold-angle) * -1)));
 }
-.pamphlet-container:is(*:hover, *:active) .fold-right {
-    transform: translateZ(100px) rotateY(var(--fold-angle));
+.pamphlet-container:is(*:hover, *:active) > .fold-right {
+    transform: rotateY(90deg) translateX(-33%)
+        rotateY(calc(-90deg + var(--fold-angle)));
     position: relative;
 }
 
@@ -104,7 +90,4 @@
 }
 .fold-right > .fold-left {
     transform: rotateY(-179deg);
-}
-.pamphlet-container:is(*:hover, *:active) {
-    transform: translateX(calc(1% * var(--card-size-adjust-percentage) / -2));
 }

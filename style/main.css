@@ -14,6 +14,7 @@ html {
     --pamphlet-cover-color: #504136;
     --pamphlet-corner-shadow: #d6c6ad;
     --display-shadows: "block";
+    --pamphlet-min-width: 100%;
 }
 body {
     background-color: whitesmoke;
@@ -21,6 +22,7 @@ body {
     padding: 0;
     box-sizing: border-box;
     height: 100vh;
+    width: 100vw;
     overflow: hidden;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
         Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
