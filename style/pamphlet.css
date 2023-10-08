@@ -8,6 +8,7 @@
     transition: transform var(--transition-duration);
     transform: translateX(calc(100% / (2 * var(--amount-of-columns))));
     min-width: var(--pamphlet-min-width);
+    max-width: 100vw;
 }
 .pamphlet-container:is(*:hover, *:active) {
     transform: translateX(0);

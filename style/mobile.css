@@ -1,0 +1,13 @@
+/*css for mobile devices*/
+@media only screen and (max-width: 1024px) {
+    html {
+        font-size: 3.5vw;
+    }
+    .pamphlet-container {
+        width: calc(var(--amount-of-columns) * 90vw);
+        height: calc(100vh - 10vw);
+        max-width: unset;
+        aspect-ratio: unset;
+        transform: translateX(calc(5vw + -100% * 2 / var(--amount-of-columns)));
+    }
+}
