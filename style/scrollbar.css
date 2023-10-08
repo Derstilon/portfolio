@@ -1,6 +1,5 @@
 .column-content {
     scroll-behavior: smooth;
-    scrollbar-width: thin;
     scrollbar-color: var(--pamphlet-cover-color) transparent;
 }
 .column-content::-webkit-scrollbar {

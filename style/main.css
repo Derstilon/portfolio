@@ -4,6 +4,7 @@ html {
 :root {
     --card-size-adjust-percentage: 10;
     --fold-angle: 35deg;
+    --column-inner-shadow-angle: 35deg;
     --card-aspect-ratio: 9/16;
     --amount-of-columns: 6;
     --transition-duration: 1.5s;

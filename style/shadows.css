@@ -1,6 +1,6 @@
 .column-inner {
-    filter: brightness(0.6);
-    transition: filter var(--transition-duration) ease-in-out;
+    filter: brightness(0.2);
+    transition: filter var(--transition-duration) ease-in;
 }
 .fold-left > .column-inner:not(.cover) {
     background: linear-gradient(
@@ -35,18 +35,23 @@
     top: 0;
     width: 200%;
     height: 60%;
-    transform: rotateZ(90deg);
-    transition: transform var(--transition-duration) ease-in-out;
+    /* rotateZ and skew degrees should sum up to 90 deg */
+    transform: rotateZ(0) skew(0, 90deg);
+    transition: transform calc(var(--transition-duration) * 2 / 3) ease-in;
     backface-visibility: hidden;
 }
 .pamphlet-container:is(*:hover, *:active)
     .fold-right:not(.c6)
     > .column-inner::after {
-    transform: rotateZ(25deg) skew(0, 65deg); /* rotateZ and skew degrees should sum up to 90 deg */
+    /* rotateZ and skew degrees should sum up to 90 deg */
+    transform: rotateZ(var(--column-inner-shadow-angle))
+        skew(0, calc(90deg - var(--column-inner-shadow-angle)));
+    transition: transform calc(var(--transition-duration) * 2 / 3) ease-out
+        calc(var(--transition-duration) / 3);
 }
 .pamphlet-container:is(*:hover, *:active) .fold-right::before {
     filter: blur(20px) opacity(1);
-    transition: filter calc(var(--transition-duration) / 2) linear
+    transition: filter calc(var(--transition-duration) / 2) ease-out
             calc(var(--transition-duration) / 2),
         transform var(--transition-duration);
     transform: rotateY(calc(var(--fold-angle) * -1)) translateZ(-40px)
@@ -63,7 +68,7 @@
     height: 100%;
     filter: blur(20px) opacity(0);
     transform: rotateY(-180deg) translateZ(0);
-    transition: filter calc(var(--transition-duration) / 3),
+    transition: filter calc(var(--transition-duration) / 3) ease-in,
         transform var(--transition-duration);
 }
 .fold-right.c2::before {
@@ -83,7 +88,9 @@
 }
 .pamphlet-container:is(*:hover, *:active) .fold-left > .column-inner {
     filter: brightness(0.85);
+    transition: filter var(--transition-duration) ease-out;
 }
 .pamphlet-container:is(*:hover, *:active) .fold-right > .column-inner {
     filter: brightness(1);
+    transition: filter var(--transition-duration) ease-out;
 }

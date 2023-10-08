@@ -5,7 +5,7 @@
     grid-template-rows: 100%;
     transform-style: preserve-3d;
     perspective: 4000px;
-    transition: transform var(--transition-duration) ease-in-out;
+    transition: transform var(--transition-duration);
     transform: translateX(calc(100% / (2 * var(--amount-of-columns))));
     min-width: var(--pamphlet-min-width);
 }
@@ -86,8 +86,8 @@
     transform: rotateY(calc(var(--fold-angle) * -2));
 }
 .fold-right {
-    transform: rotateY(179deg);
+    transform: rotateY(179.5deg);
 }
 .fold-right > .fold-left {
-    transform: rotateY(-179deg);
+    transform: rotateY(-179.5deg);
 }
