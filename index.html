@@ -231,6 +231,9 @@
                 "green",
             );
             disableShadows();
+            document.body.addEventListener("touchstart", function (e) {
+                e.preventDefault();
+            });
         </script>
     </body>
 </html>

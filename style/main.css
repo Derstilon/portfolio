@@ -1,5 +1,6 @@
 html {
     font-size: 0.75vw;
+    overflow: hidden;
 }
 :root {
     --card-size-adjust-percentage: 10;
@@ -43,4 +44,5 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    position: relative;
 }
