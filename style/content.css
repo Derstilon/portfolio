@@ -3,6 +3,7 @@
     font-family: "Black Ops One", cursive;
     text-align: center;
     font-size: 4rem;
+    letter-spacing: 0.2rem;
 }
 .subtitle {
     text-align: center;
@@ -29,4 +30,7 @@
     width: calc(100% - 2rem - var(--column-white-space));
     padding-block: 2rem 1rem;
     background: var(--pamphlet-color);
+}
+.column-content > .mobile-navigation {
+    display: none;
 }

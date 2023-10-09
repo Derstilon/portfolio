@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="style/shadows.css" />
         <!-- <link rel="stylesheet" href="style/scrollbar.css" /> -->
         <!-- <link rel="stylesheet" href="style/content.css" /> -->
+        <link rel="stylesheet" href="style/textures.css" />
         <link rel="stylesheet" href="style/mobile.css" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charset="UTF-8" />
@@ -27,19 +28,89 @@
                     <div class="column c3 fold-left">
                         <div class="column-inner cover empty"></div>
                     </div>
-                    <div class="column-inner empty"></div>
+                    <div class="column-inner empty">
+                        <div class="column-content">
+                            <div
+                                class="mobile-navigation"
+                                onclick="navigateTo(2)"
+                            ></div>
+                        </div>
+                    </div>
                 </div>
-                <div class="column-inner empty"></div>
+                <div class="column-inner empty">
+                    <div class="column-content">
+                        <div
+                            class="mobile-navigation"
+                            onclick="navigateTo(3)"
+                        ></div>
+                    </div>
+                </div>
             </div>
             <div class="column c4 fold-right">
-                <div class="column-inner empty"></div>
+                <div class="column-inner empty">
+                    <div class="column-content">
+                        <div
+                            class="mobile-navigation"
+                            onclick="navigateTo(4)"
+                        ></div>
+                    </div>
+                </div>
                 <div class="column c5 fold-left">
-                    <div class="column-inner empty"></div>
+                    <div class="column-inner empty">
+                        <div class="column-content">
+                            <div
+                                class="mobile-navigation"
+                                onclick="returnNavigation(this)"
+                            ></div>
+                        </div>
+                    </div>
                     <div class="column c6 fold-right">
                         <div class="column-inner cover empty"></div>
                     </div>
                 </div>
             </div>
         </div>
+        <script>
+            function updateMarkerPosition(element, markerName = "red") {
+                var isFirefox = typeof InstallTrigger !== "undefined";
+                if (isFirefox) return;
+                const scrollPosition = element.scrollTop;
+                const redMarkerPosition =
+                    (scrollPosition / element.scrollHeight) * 100;
+                document.documentElement.style.setProperty(
+                    `--${markerName}-marker-position`,
+                    `${redMarkerPosition}%`,
+                );
+            }
+            function disableShadows() {
+                var isFirefox = typeof InstallTrigger !== "undefined";
+                if (isFirefox) return;
+                document.documentElement.style.setProperty(
+                    "--display-shadows",
+                    "none",
+                );
+            }
+            function navigateTo(idx) {
+                document.documentElement.style.setProperty(
+                    "--mobile-pamphlet-column-focus",
+                    idx,
+                );
+            }
+            function returnNavigation() {
+                const element =
+                    document.getElementsByClassName("pamphlet-container")[0];
+                element.blur();
+                navigateTo(1);
+            }
+            updateMarkerPosition(
+                document.getElementsByClassName("red-marker")[0],
+                "red",
+            );
+            updateMarkerPosition(
+                document.getElementsByClassName("green-marker")[0],
+                "green",
+            );
+            disableShadows();
+        </script>
     </body>
 </html>

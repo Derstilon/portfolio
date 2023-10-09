@@ -1,0 +1,55 @@
+.column > .column-inner {
+    background-blend-mode: multiply;
+    background-size: 320px;
+}
+.column > .column-inner.cover {
+    background-image: url("../img/cover_texture.jpg");
+}
+.column > .column-inner:not(.cover) {
+    background-blend-mode: normal, overlay;
+}
+.fold-right > .column-inner:not(.cover) {
+    background: linear-gradient(
+            90deg,
+            transparent 98.5%,
+            var(--pamphlet-corner-shadow) 100%
+        ),
+        linear-gradient(
+            90deg,
+            var(--pamphlet-color) 0%,
+            var(--pamphlet-color) 100%
+        ),
+        url("../img/paper_texture.jpg");
+}
+.fold-left > .column-inner:not(.cover) {
+    background: linear-gradient(
+            90deg,
+            var(--pamphlet-corner-shadow) 0%,
+            transparent 1.5%
+        ),
+        linear-gradient(
+            90deg,
+            var(--pamphlet-color) 0%,
+            var(--pamphlet-color) 100%
+        ),
+        url("../img/paper_texture.jpg");
+}
+.cover > .column-content > * {
+    background-color: var(--accent-color-3);
+    color: transparent;
+    text-shadow: 0 2px 0.5px rgba(255, 255, 255, 0.2);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    filter: brightness(2.1);
+}
+.content-list-title {
+    background-blend-mode: overlay;
+    background-size: 320px;
+    background: linear-gradient(
+            90deg,
+            var(--pamphlet-color) 0%,
+            var(--pamphlet-color) 100%
+        ),
+        url("../img/paper_texture.jpg");
+}
