@@ -10,7 +10,7 @@
     min-width: var(--pamphlet-min-width);
     max-width: 100vw;
 }
-.pamphlet-container:is(*:hover, *:active) {
+.pamphlet-container:is(*:hover, *:focus, *:focus-within) {
     transform: translateX(0);
 }
 .column {
@@ -70,20 +70,24 @@
 .column:is(.c4, .c5, .c6) {
     transform-origin: 0 center;
 }
-.pamphlet-container:is(*:hover, *:active) > .fold-left {
+.pamphlet-container:is(*:hover, *:focus, *:focus-within) > .fold-left {
     transform: rotateY(-90deg) translateX(33%)
         rotateY(calc(90deg + (var(--fold-angle) * -1)));
 }
-.pamphlet-container:is(*:hover, *:active) > .fold-right {
+.pamphlet-container:is(*:hover, *:focus, *:focus-within) > .fold-right {
     transform: rotateY(90deg) translateX(-33%)
         rotateY(calc(-90deg + var(--fold-angle)));
     position: relative;
 }
 
-.pamphlet-container:is(*:hover, *:active) .fold-left > .fold-right {
+.pamphlet-container:is(*:hover, *:focus, *:focus-within)
+    .fold-left
+    > .fold-right {
     transform: rotateY(calc(var(--fold-angle) * 2));
 }
-.pamphlet-container:is(*:hover, *:active) .fold-right > .fold-left {
+.pamphlet-container:is(*:hover, *:focus, *:focus-within)
+    .fold-right
+    > .fold-left {
     transform: rotateY(calc(var(--fold-angle) * -2));
 }
 .fold-right {

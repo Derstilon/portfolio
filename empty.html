@@ -22,7 +22,7 @@
         <meta name="author" content="Jakub Niechaj" />
     </head>
     <body>
-        <div class="pamphlet-container">
+        <div class="pamphlet-container" tabindex="0">
             <div class="column c1 fold-left">
                 <div class="column c2 fold-right">
                     <div class="column c3 fold-left">
@@ -97,9 +97,7 @@
                 );
             }
             function returnNavigation() {
-                const element =
-                    document.getElementsByClassName("pamphlet-container")[0];
-                element.blur();
+                document.activeElement.blur();
                 navigateTo(1);
             }
             updateMarkerPosition(
@@ -114,6 +112,9 @@
             document.body.addEventListener("touchstart", function (e) {
                 e.preventDefault();
             });
+            window.onbeforeunload = function () {
+                window.scrollTo(0, 0);
+            };
         </script>
     </body>
 </html>

@@ -40,7 +40,7 @@
     transition: transform calc(var(--transition-duration) * 2 / 3) ease-in;
     backface-visibility: hidden;
 }
-.pamphlet-container:is(*:hover, *:active)
+.pamphlet-container:is(*:hover, *:focus, *:focus-within)
     .fold-right:not(.c6)
     > .column-inner::after {
     /* rotateZ and skew degrees should sum up to 90 deg */
@@ -49,7 +49,7 @@
     transition: transform calc(var(--transition-duration) * 2 / 3) ease-out
         calc(var(--transition-duration) / 3);
 }
-.pamphlet-container:is(*:hover, *:active) .fold-right::before {
+.pamphlet-container:is(*:hover, *:focus, *:focus-within) .fold-right::before {
     filter: blur(20px) opacity(1);
     transition: filter calc(var(--transition-duration) / 2) ease-out
             calc(var(--transition-duration) / 2),
@@ -86,11 +86,15 @@
     left: -55%;
     transform-origin: 100% 0;
 }
-.pamphlet-container:is(*:hover, *:active) .fold-left > .column-inner {
+.pamphlet-container:is(*:hover, *:focus, *:focus-within)
+    .fold-left
+    > .column-inner {
     filter: brightness(0.85);
     transition: filter var(--transition-duration) ease-out;
 }
-.pamphlet-container:is(*:hover, *:active) .fold-right > .column-inner {
+.pamphlet-container:is(*:hover, *:focus, *:focus-within)
+    .fold-right
+    > .column-inner {
     filter: brightness(1);
     transition: filter var(--transition-duration) ease-out;
 }
