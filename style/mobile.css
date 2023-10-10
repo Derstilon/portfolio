@@ -4,8 +4,9 @@
         --fold-angle: 25deg;
         --column-inner-shadow-angle: 25deg;
         --mobile-pamphlet-screen-inline-padding: 30vw;
-        --mobile-pamphlet-screen-block-padding: 40vw;
+        --mobile-pamphlet-screen-block-padding: 15vw;
         --mobile-font-size: 1.5vw;
+        --mobile-pamphlet-column-offset: 0.6;
     }
     .content-list-title {
         font-size: 1.5rem;
@@ -34,19 +35,22 @@
     .pamphlet-container:is(*:hover, *:focus, *:focus-within) {
         transform: translateX(
             calc(
-                (
-                        var(--mobile-pamphlet-screen-inline-padding) * 2 *
+                var(--mobile-pamphlet-screen-inline-padding) -
+                    (
+                        100% *
                             (
-                                var(--amount-of-columns) - 1 -
-                                    var(--mobile-pamphlet-column-focus)
-                            ) - 100% * var(--mobile-pamphlet-column-focus)
+                                var(--mobile-pamphlet-column-focus) +
+                                    var(--mobile-pamphlet-column-offset)
+                            ) - var(--mobile-pamphlet-screen-inline-padding)
                     ) / var(--amount-of-columns)
             )
         );
     }
+    .fold-left > .column-inner > .column-content > .mobile-navigation {
+        display: block;
+    }
     .column-content > .mobile-navigation {
         cursor: pointer;
-        display: block;
         width: 3rem;
         height: 6rem;
         position: fixed;
@@ -101,10 +105,14 @@
     }
 }
 @media only screen and (max-width: 720px) {
+    .fold-right > .column-inner > .column-content > .mobile-navigation {
+        display: block;
+    }
     :root {
         --mobile-pamphlet-screen-inline-padding: 15vw;
         --mobile-pamphlet-screen-block-padding: 30vw;
         --mobile-font-size: 3vw;
+        --mobile-pamphlet-column-offset: 0;
     }
 }
 

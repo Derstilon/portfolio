@@ -15,10 +15,10 @@ html {
     --pamphlet-color: #e7e5df;
     --pamphlet-cover-color: #393e41;
     --pamphlet-corner-shadow: #d3d0cb;
-    --accent-color-1: #c6ab62;
+    --accent-color-1: #c5a344;
     --accent-color-2: #6eafa2;
-    --accent-color-3: #4b3e1b;
-    --accent-color-4: #24423c;
+    --accent-color-3: #74560a;
+    --accent-color-4: #0e6856;
     --display-shadows: "block";
     --pamphlet-min-width: 100%;
     --mobile-pamphlet-column-focus: 1; /* can have values from 0 to (--amount-of-columns - 1) */

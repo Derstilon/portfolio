@@ -37,11 +37,11 @@
 .cover > .column-content > * {
     background-color: var(--accent-color-3);
     color: transparent;
-    text-shadow: 0 2px 0.5px rgba(255, 255, 255, 0.2);
+    text-shadow: 0 2px 0.5px rgba(255, 255, 255, 0.25);
     -webkit-background-clip: text;
     -moz-background-clip: text;
     background-clip: text;
-    filter: brightness(2.1);
+    filter: brightness(1.5);
 }
 .content-list-title {
     background-blend-mode: overlay;
