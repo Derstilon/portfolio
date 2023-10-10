@@ -227,9 +227,9 @@
                     idx,
                 );
             }
-            function returnNavigation() {
-                document.activeElement.blur();
+            function returnNavigation(element) {
                 navigateTo(1);
+                element.blur();
             }
             updateMarkerPosition(
                 document.getElementsByClassName("red-marker")[0],
@@ -242,6 +242,10 @@
             disableShadows();
             document.body.addEventListener("touchstart", function (e) {
                 e.preventDefault();
+            });
+            document.body.addEventListener("keydown", function (e) {
+                const keycode = e.keyCode ? e.keyCode : e.which;
+                if (keycode === 13) document.activeElement.click();
             });
             window.onbeforeunload = function () {
                 window.scrollTo(0, 0);
