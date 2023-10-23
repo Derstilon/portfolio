@@ -10,8 +10,8 @@
     }
     .content-list-title {
         font-size: 1.5rem;
-        width: calc(100% - 4rem - var(--column-white-space));
-        padding-inline: 1rem;
+        width: calc(100% - 7rem - var(--column-white-space));
+        padding-inline: 3rem;
     }
     html {
         font-size: var(--mobile-font-size);
@@ -50,8 +50,11 @@
         display: block;
     }
     .column-content > .mobile-navigation {
+        --marker-shadow-color: rgba(47, 47, 47, 0.15);
+    }
+    .column-content > .mobile-navigation {
         cursor: pointer;
-        width: 3rem;
+        width: 4rem;
         height: 6rem;
         position: fixed;
         z-index: 1;
@@ -59,9 +62,9 @@
         right: 1rem;
         background: radial-gradient(
                     circle,
-                    #f1e5ac 0%,
-                    #f1e5ac calc(0.675rem),
-                    transparent calc(0.675rem)
+                    var(--pamphlet-cover-color) 0%,
+                    var(--pamphlet-cover-color) calc(1.25rem),
+                    transparent calc(1.25rem)
                 )
                 center calc(100% - 2rem) no-repeat,
             linear-gradient(
@@ -90,18 +93,32 @@
                     rgba(47, 47, 47, 0.15) 360deg
                 )
                 center 0 no-repeat;
-        background-size: 3rem 2rem, calc(100% - 0.125rem) 5.5rem,
-            calc(100% - 0.125rem) calc(100% - 0.125rem), auto;
+        background-size: 3rem 3rem, calc(100% - 0.125rem) 5.25rem,
+            calc(100% - 0.125rem) calc(100% - 0.125rem), 6rem 3rem;
+        background-position: center;
     }
     .column-content > .mobile-navigation::after {
         content: "";
         position: absolute;
-        top: 2rem;
-        left: 1rem;
+        top: 2.5rem;
+        left: 1.25rem;
         width: 0;
         height: 0;
-        border-block: 1rem solid transparent;
-        border-left: 1.5rem solid var(--accent-color-2);
+        border-block: 0.5rem solid transparent;
+        border-left: 0.75rem solid var(--pamphlet-cover-color);
+    }
+    .column-content > .mobile-navigation::before {
+        content: "";
+        position: absolute;
+        top: 1.5rem;
+        left: 1.25rem;
+        width: 0;
+        height: 0;
+        border-block: 1.5rem solid transparent;
+        border-left: 2rem solid #f1e5ac;
+    }
+    .column-content > .mobile-navigation:hover {
+        filter: brightness(1.1);
     }
 }
 @media only screen and (max-width: 720px) {

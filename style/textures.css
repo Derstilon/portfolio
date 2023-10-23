@@ -35,13 +35,12 @@
         url("../img/paper_texture.jpg");
 }
 .cover > .column-content > * {
-    background-color: var(--accent-color-3);
+    background: var(--accent-color-1);
     color: transparent;
-    text-shadow: 0 2px 0.5px rgba(255, 255, 255, 0.25);
     -webkit-background-clip: text;
     -moz-background-clip: text;
     background-clip: text;
-    filter: brightness(1.5);
+    position: relative;
 }
 .content-list-title {
     background-blend-mode: overlay;

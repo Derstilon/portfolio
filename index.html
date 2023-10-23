@@ -28,8 +28,12 @@
                     <div class="column c3 fold-left">
                         <div class="column-inner cover">
                             <div class="column-content" tabindex="1">
-                                <h1 class="title">Jakub Niechaj</h1>
-                                <h2 class="subtitle">Frontend Developer</h2>
+                                <h1 class="title" text="Jakub Niechaj">
+                                    Jakub Niechaj
+                                </h1>
+                                <h2 class="subtitle" text="Frontend Developer">
+                                    Frontend Developer
+                                </h2>
                             </div>
                         </div>
                     </div>
@@ -210,13 +214,17 @@
         <script>
             function updateMarkerPosition(element, markerName = "red") {
                 var isFirefox = typeof InstallTrigger !== "undefined";
-                if (isFirefox) return;
+                if (isFirefox)
+                    return document.documentElement.style.setProperty(
+                        `--marker-padding`,
+                        `0`,
+                    );
                 const scrollPosition = element.scrollTop;
-                const redMarkerPosition =
+                const markerPosition =
                     (scrollPosition / element.scrollHeight) * 100;
                 document.documentElement.style.setProperty(
                     `--${markerName}-marker-position`,
-                    `${redMarkerPosition}%`,
+                    `${markerPosition}`,
                 );
             }
             function disableShadows() {

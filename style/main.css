@@ -10,8 +10,9 @@ html {
     --amount-of-columns: 6;
     --transition-duration: 1.5s;
     --column-white-space: 2rem;
-    --red-marker-position: -3rem;
-    --green-marker-position: -3rem;
+    --red-marker-percentage: 0;
+    --green-marker-percentage: 0;
+    --marker-padding: var(--column-white-space);
     --pamphlet-color: #e7e5df;
     --pamphlet-cover-color: #393e41;
     --pamphlet-corner-shadow: #d3d0cb;
